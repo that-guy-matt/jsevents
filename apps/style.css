@@ -1,0 +1,13 @@
+#total {
+  color: green;
+}
+
+#combo {
+  color: blue;
+}
+
+#btn {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
