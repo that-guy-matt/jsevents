@@ -16,4 +16,4 @@ Demo 1 makes use of click events. This is a simple game where a button will rand
 
 ## Known Issues
 
-- Demo 1: currently the combo counter resets after every button move. I know why but I need to stop for tonight.
+- ~~Demo 1: currently the combo counter resets after every button move. I know why but I need to stop for tonight.~~ FIXED
