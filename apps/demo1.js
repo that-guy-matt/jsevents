@@ -1,19 +1,32 @@
 let total = 0;
 let combo = 0;
 let timer = 1200;
-let totalTxt = document.querySelector("#totalCount");
+var comboTimer;
+let scoreTxt = document.querySelector("#totalCount");
 let comboTxt = document.querySelector("#comboCount");
 let btn = document.querySelector("#btn");
 
 btn.addEventListener("click", function () {
-  total++;
-  combo++;
-  updateScore(totalTxt, total);
-  updateScore(comboTxt, combo);
+  increaseScore();
+  increaseCombo();
+  clearInterval(comboTimer);
+  moveButton();
+  startTimer();
 });
 
-function updateScore(item, n) {
-  item.textContent = n;
+function increaseScore() {
+  total++;
+  scoreTxt.textContent = total;
+}
+
+function increaseCombo() {
+  combo++;
+  comboTxt.textContent = combo;
+}
+
+function resetCombo() {
+  combo = 0;
+  comboTxt.textContent = combo;
 }
 
 function moveButton() {
@@ -21,11 +34,13 @@ function moveButton() {
   let y = Math.floor(Math.random() * window.innerHeight);
   btn.style.top = `${y}px`;
   btn.style.left = `${x}px`;
-  setTimeout(function () {
+}
+
+function startTimer() {
+  comboTimer = setInterval(function () {
     moveButton();
-    combo = 0;
-    updateScore(comboTxt, combo);
+    resetCombo();
   }, timer);
 }
 
-moveButton();
+startTimer();
